@@ -29,13 +29,17 @@
 
 * 三维空间画线
 
-<https://blog.csdn.net/orbit/article/details/7185982> 
+  <https://blog.csdn.net/orbit/article/details/7185982> 
 
-<http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.845.6869&rep=rep1&type=pdf> 
+​	<http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.845.6869&rep=rep1&type=pdf> 
 
 * 三维坐标旋转
 
-<https://jermmy.xyz/2017/03/28/2017-3-28-rotate-in-3D/> 
+  <https://jermmy.xyz/2017/03/28/2017-3-28-rotate-in-3D/> 
+
+* 三维点平面对称
+
+  <https://blog.csdn.net/yinhun2012/article/details/83788822> 
 
 
 
