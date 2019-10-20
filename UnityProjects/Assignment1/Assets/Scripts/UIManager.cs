@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    public Text output;
+    public MeshFilter meshFilter;
+    public Text output1;
+    public Text output2;
     public LineManager line;
     public PointManager point;
     public PointManager resPoint;
@@ -15,6 +17,10 @@ public class UIManager : MonoBehaviour {
     private float SPx, SPy, SPz;
     private float EPx, EPy, EPz;
     private float Angle;
+    private float PP1x, PP1y, PP1z;
+    private float PP2x, PP2y, PP2z;
+    private float PP3x, PP3y, PP3z;
+
 
 
     private Vector3 rotatePos = new Vector3();
@@ -23,44 +29,218 @@ public class UIManager : MonoBehaviour {
 
 	public void OnPxChange(string str)
     {
-        Px = System.Convert.ToSingle(str);
+        try
+        {
+            Px = System.Convert.ToSingle(str);
+        }
+        catch(System.Exception e)
+        {
+            Px = 0.0f;
+        }
     }
     public void OnPyChange(string str)
     {
-        Py = System.Convert.ToSingle(str);
+        try
+        {
+            Py = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            Py = 0.0f;
+        }
     }
     public void OnPzChange(string str)
     {
-        Pz = System.Convert.ToSingle(str);
+        try
+        {
+            Pz = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            Pz = 0.0f;
+        }
     }
     public void OnSPxChange(string str)
     {
-        SPx = System.Convert.ToSingle(str);
+        try
+        {
+            SPx = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            SPx = 0.0f;
+        }
     }
     public void OnSPyChange(string str)
     {
-        SPy = System.Convert.ToSingle(str);
+        try
+        {
+            SPy = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            SPy = 0.0f;
+        }
     }
     public void OnSPzChange(string str)
     {
-        SPz = System.Convert.ToSingle(str);
+        try
+        {
+            SPz = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            SPz = 0.0f;
+        }
     }
     public void OnEPxChange(string str)
     {
-        EPx = System.Convert.ToSingle(str);
+        try
+        {
+            EPx = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            EPx = 0.0f;
+        }
     }
     public void OnEPyChange(string str)
     {
-        EPy = System.Convert.ToSingle(str);
+        try
+        {
+            EPy = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            EPy = 0.0f;
+        }
     }
     public void OnEPzChange(string str)
     {
-        EPz = System.Convert.ToSingle(str);
+        try
+        {
+            EPz = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            EPz = 0.0f;
+        }
     }
     public void OnAngleChange(string str)
     {
-        Angle = System.Convert.ToSingle(str);
+        try
+        {
+            Angle = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            Angle = 0.0f;
+        }
     }
+
+    #region 三点确定平面
+    public void OnPP1xChange(string str)
+    {
+        try
+        {
+            PP1x = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            PP1x = 0.0f;
+        }
+    }
+    public void OnPP1yChange(string str)
+    {
+        try
+        {
+            PP1y = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            PP1y = 0.0f;
+        }
+    }
+    public void OnPP1zChange(string str)
+    {
+        try
+        {
+            PP1z = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            PP1z = 0.0f;
+        }
+    }
+
+    public void OnPP2xChange(string str)
+    {
+        try
+        {
+            PP2x = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            PP2x = 0.0f;
+        }
+    }
+    public void OnPP2yChange(string str)
+    {
+        try
+        {
+            PP2y = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            PP2y = 0.0f;
+        }
+    }
+    public void OnPP2zChange(string str)
+    {
+        try
+        {
+            PP2z = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            PP2z = 0.0f;
+        }
+    }
+
+    public void OnPP3xChange(string str)
+    {
+        try
+        {
+            PP3x = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            PP3x = 0.0f;
+        }
+    }
+    public void OnPP3yChange(string str)
+    {
+        try
+        {
+            PP3y = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            PP3y = 0.0f;
+        }
+    }
+    public void OnPP3zChange(string str)
+    {
+        try
+        {
+            PP3z = System.Convert.ToSingle(str);
+        }
+        catch (System.Exception e)
+        {
+            PP3z = 0.0f;
+        }
+    }
+    #endregion
 
     public void OnClickRotate()
     {
@@ -72,11 +252,20 @@ public class UIManager : MonoBehaviour {
 
         line.DrawLine(new Vector3(SPx, SPy, SPz), new Vector3(EPx, EPy, EPz));
         point.DrawPoint(new Vector3(Px, Py, Pz));
+
         RotateAroundLine(new Vector3(Px, Py, Pz), new Vector3(SPx, SPy, SPz), new Vector3(EPx, EPy, EPz), Angle);
         resPoint.DrawPoint(rotatePos);
         zPoint.DrawPoint(zAxisPos);
     }
 
+    public void OnClickSymetryPoint()
+    {
+        point.Reset();
+        planePoint.Reset();
+        point.DrawPoint(new Vector3(Px, Py, Pz));
+        SymmetryWithPlane(new Vector3(Px, Py, Pz), new Vector3(PP1x, PP1y, PP1z), new Vector3(PP2x, PP2y, PP2z), new Vector3(PP3x, PP3y, PP3z));
+        planePoint.DrawPoint(planePos);
+    }
     private void RotateAroundLine(Vector3 point,Vector3 StartPos,Vector3 EndPos,float RAngle)
     {
         //1.将直线平移回原点位置
@@ -195,10 +384,55 @@ public class UIManager : MonoBehaviour {
         tmp2 = LeftMul(tmp2, T7);
         zAxisPos = tmp2;
 
-        output.text = "关于直线旋转的点:" + "\n" + rotatePos.ToString()+"\n"
-                     +"关于直线对称的点:" + "\n" + zAxisPos.ToString() + "\n"
-                     +"关于平面对称的点:" + "\n" + planePos.ToString();
+        output1.text = "关于直线旋转的点:" + "\n" + rotatePos.ToString() + "\n"
+                     + "关于直线对称的点:" + "\n" + zAxisPos.ToString() + "\n";
     }
+
+    private void SymmetryWithPlane(Vector3 point,Vector3 PlanePoint1,Vector3 PlanePoint2,Vector3 PlanePoint3)
+    {
+        Mesh mesh = new Mesh();
+        meshFilter.mesh = mesh;
+
+        Vector3[] vertices = new Vector3[]
+        {
+            PlanePoint1,
+            PlanePoint2,
+            PlanePoint3
+        };
+        int[] triangles = new int[]
+        {
+            0,1,2
+        };
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+
+
+        Vector3 vec1 = PlanePoint2 - PlanePoint1;
+        Vector3 vec2 = PlanePoint3 - PlanePoint1;
+
+        Vector3 normalVector = Vector3.Normalize(Vector3.Cross(vec1, vec2));
+        /*
+         * 点法式可得到平面方程：
+         * n.x * (x-p1.x) + n.y * (y-p1.y) + n.z * (z-p1.z) = 0
+         * n.x * X + n.y * Y + n.z * Z + (-n.x * p1.x - n.y * p1.y - n.z * p1.z) = 0
+         * Ax + By + Cz + D = 0;
+         */
+        float A = normalVector.x;
+        float B = normalVector.y;
+        float C = normalVector.z;
+        float D = -normalVector.x * PlanePoint1.x - normalVector.y * PlanePoint1.y - normalVector.z * PlanePoint1.z;
+
+        /*
+         * 利用推导可以得到对称点位置
+         * https://blog.csdn.net/yinhun2012/article/details/83788822
+         */
+
+        planePos.x = point.x - 2 * A * (A * point.x + B * point.y + C * point.z + D) / (A * A + B * B + C * C);
+        planePos.y = point.y - 2 * B * (A * point.x + B * point.y + C * point.z + D) / (A * A + B * B + C * C);
+        planePos.z = point.z - 2 * C * (A * point.x + B * point.y + C * point.z + D) / (A * A + B * B + C * C);
+        output2.text = "关于平面对称的点:" + "\n" + planePos.ToString()+"\n";
+    }
+
 
     private float GetCosTheta(Vector3 v1,Vector3 v2)
     {
